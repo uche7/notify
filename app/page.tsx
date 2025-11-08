@@ -1,44 +1,13 @@
 import Link from "next/link";
-import {
-  ArrowRight,
-  Bell,
-  CheckCircle2,
-  Sparkles,
-} from "lucide-react";
+import { ArrowRight, Bell, Sparkles } from "lucide-react";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { NotificationToastHub } from "@/components/notifications/NotificationToastHub";
+import {
+  HOME_HIGHLIGHTS,
+  HOME_PREVIEW_NOTIFICATIONS,
+} from "@/lib/dto/home-content";
 
-const highlights = [
-  {
-    title: "Mark as handled",
-    description: "One-tap read toggles keep your queue focused.",
-    icon: <CheckCircle2 className="h-5 w-5 text-emerald-500" />,
-  },
-  {
-    title: "Toast everywhere",
-    description: "Stay in the loop even while adjusting preferences.",
-    icon: <Sparkles className="h-5 w-5 text-blue-500" />,
-  },
-];
-
-const previewNotifications = [
-  {
-    title: "Product launch ready",
-    body: "Your release checklist is green across all services.",
-    badge: "success",
-  },
-  {
-    title: "Unusual login detected",
-    body: "We spotted a new device in Berlin. Review the activity log.",
-    badge: "warning",
-  },
-  {
-    title: "System maintenance window",
-    body: "Scheduled downtime on Friday at 02:00 UTC.",
-    badge: "info",
-  },
-];
-
+/** Home Page */
 export default function HomePage() {
   return (
     <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-blue-50 via-white to-indigo-100 dark:from-slate-950 dark:via-slate-950 dark:to-slate-900">
@@ -90,7 +59,7 @@ export default function HomePage() {
                 </Link>
               </div>
               <dl className="mt-10 grid gap-6 sm:grid-cols-2">
-                {highlights.map((item) => (
+                {HOME_HIGHLIGHTS.map((item) => (
                   <div
                     key={item.title}
                     className="flex items-start gap-3 rounded-xl border border-transparent bg-white/70 p-4 shadow-sm backdrop-blur dark:bg-slate-900/60"
@@ -128,7 +97,7 @@ export default function HomePage() {
                   </span>
                 </div>
                 <div className="space-y-4">
-                  {previewNotifications.map((notification) => (
+                  {HOME_PREVIEW_NOTIFICATIONS.map((notification) => (
                     <article
                       key={notification.title}
                       className="rounded-2xl border border-gray-100 bg-white/90 p-4 shadow-sm transition hover:-translate-y-[1px] hover:shadow-md dark:border-slate-800 dark:bg-slate-900/80"
@@ -150,7 +119,6 @@ export default function HomePage() {
               </div>
             </div>
           </section>
-
         </main>
       </div>
     </div>
