@@ -1,8 +1,12 @@
 import Link from "next/link";
-import { NotificationSettingsForm } from "@/components/notifications/NotificationSettingsForm";
 import { ArrowLeft, BellRing } from "lucide-react";
 import { NotificationToastHub } from "@/components/notifications/NotificationToastHub";
+import { NotificationSettingsForm } from "@/components/notifications/NotificationSettingsForm";
 
+/**
+ * Notification Settings Page
+ * @returns {JSX.Element} Notification Settings Page
+ */
 export default function NotificationSettingsPage() {
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900 transition-colors dark:bg-slate-950 dark:text-slate-100">
@@ -37,5 +41,3 @@ export default function NotificationSettingsPage() {
     </div>
   );
 }
-
-

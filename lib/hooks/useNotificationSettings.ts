@@ -7,8 +7,10 @@ import {
   type NotificationSettings,
 } from "@/lib/types/notification-settings";
 
+/** Settings Updated Event */
 export const SETTINGS_UPDATED_EVENT = "notification-settings:updated";
 
+/** Read Settings From Storage */
 function readSettingsFromStorage(): NotificationSettings {
   if (typeof window === "undefined") {
     return DEFAULT_NOTIFICATION_SETTINGS;
@@ -31,6 +33,7 @@ function readSettingsFromStorage(): NotificationSettings {
   }
 }
 
+/** Persist Settings */
 function persistSettings(next: NotificationSettings) {
   if (typeof window === "undefined") {
     return;
@@ -50,6 +53,7 @@ function persistSettings(next: NotificationSettings) {
   }
 }
 
+/** Use Notification Settings */
 export function useNotificationSettings() {
   const [settings, setSettings] = useState<NotificationSettings>(() =>
     readSettingsFromStorage()
@@ -60,7 +64,11 @@ export function useNotificationSettings() {
   }, []);
 
   const applyUpdate = useCallback(
-    (updater: Partial<NotificationSettings> | ((prev: NotificationSettings) => Partial<NotificationSettings>)) => {
+    (
+      updater:
+        | Partial<NotificationSettings>
+        | ((prev: NotificationSettings) => Partial<NotificationSettings>)
+    ) => {
       setSettings((previous) => {
         const patch =
           typeof updater === "function" ? updater(previous) : updater;
@@ -110,5 +118,3 @@ export function useNotificationSettings() {
     updateSettings: applyUpdate,
   };
 }
-
-
