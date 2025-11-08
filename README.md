@@ -11,7 +11,6 @@ A responsive notification center built with Next.js 15, React 19, Tailwind CSS, 
 - [Architecture highlights](#architecture-highlights)
 - [Responsive design](#responsive-design)
 - [Assumptions](#assumptions)
-- [Known limitations & future work](#known-limitations--future-work)
 - [Brief notes](#brief-notes)
   - [Challenges faced](#challenges-faced)
   - [Further improvements](#further-improvements)
@@ -90,18 +89,6 @@ Key techniques:
 - JSONPlaceholder data is treated as read-only; mark-as-read happens locally.
 - Polling (30s) is sufficient for “real-time” behaviour in this context.
 - Dark mode toggle is managed via `next-themes` and Tailwind’s dark variants.
-
----
-
-## Known limitations & future work
-
-1. **Persistence**: Settings are browser-local; a real app would sync to a backend per user.
-2. **Data source**: Notifications use a mock API; real updates would require actual endpoints or WebSockets.
-3. **Testing**: No automated tests yet (unit or E2E). Hooks and components would benefit from coverage.
-4. **Accessibility**: Baseline support exists, but additional ARIA roles, `aria-live` regions, and SR-only labels should be audited.
-5. **Performance**: Virtualization or pagination could be added for larger data sets.
-6. **Animations**: Toasts and cards have basic transitions; Framer Motion integration could enhance motion.
-7. **Bulk actions**: Only a single “mark all” quick action exists; multi-select or more granular bulk tools are future goals.
 
 ---
 
